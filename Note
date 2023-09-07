@@ -1,5 +1,5 @@
 1050. Actors and Directors Who Cooperated At Least Three Times
-by sriganesh777
+reference by sriganesh777
 # 2023/09/07
 # Runtime 489ms (26.34%)/ Memory 61MB(80.87%)
   def actors_and_directors(actor_director: pd.DataFrame) -> pd.DataFrame:

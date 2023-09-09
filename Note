@@ -29,3 +29,20 @@ Refer to sriganesh777
     groupby = mysql => group by
     count() = mysql => count()
     reset_index = Reset the index of the DataFrame, and use the default one instead
+
+1517. Find Users With Valid E-Mails
+Refer to Kyrylo-Ktl, Joey01
+# 2023/09/09
+# Runtime 691ms (5.13%) / Memory 61.40MB(16.32%)
+# Runtime 464ms (25.53%)/ Memory 61.30MB(34.20%)
+  def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
+    #Kyrylo-Ktl
+    result = users[users['mail'].str.match(r'^[a-zA-Z][a-zA-Z\d_.-]*@leetcode\.com')]
+    #Joey01
+    result = users[users['mail'].str.match(r'^[A-Za-z][A-Za-z0-9_\.\-]*@leetcode\.com$')]
+    return result
+
+
+
+
+

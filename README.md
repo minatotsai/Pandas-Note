@@ -47,3 +47,27 @@
     return result
 ```
 
+```diff
+177. Nth Highest Salary
++ Refer to bcs636764, sriganesh777
+
+- 2023/09/11
+- Runtime 465ms (24.39%) / Memory 60.87MB(39.52%)
+
+  def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
+    # Drop any duplicate salary values to avoid counting duplicates as separate salary ranks
+    salaries = employee['salary'].drop_duplicates()
+    # Sort the unique salaries in descending order and get the Nth highest salary
+    sorted_salaries = salaries.sort_values(ascending=False)
+    # If N exceeds the number of unique salaries, return None
+    if N > len(sorted_salaries):
+        return pd.DataFrame({f'getNthHighestSalary({N})': [None]})
+    # Get the Nth highest salary from the sorted salaries
+    nth_highest = sorted_salaries.iloc[ N-1 ]
+    return pd.DataFrame({f'getNthHighestSalary({N})': [nth_highest]})
+```
+
+
+
+
+

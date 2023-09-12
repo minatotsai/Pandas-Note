@@ -8,14 +8,14 @@
     Group the data by actor_id and director_id, and count the number of cooperations
     grouped = actor_director.groupby(['actor_id', 'director_id']).size().reset_index(name='cooperation_count')
 
-    now 
+    # now 
     | actor_id | director_id | cooperation_count |
     | -------- | ----------- | ----------------- |
     | 1        | 1           | 3                 |
     | 1        | 2           | 2                 |
     | 2        | 1           | 2                 |
       
-    - Filter the pairs where the cooperation count is at least three
+    # Filter the pairs where the cooperation count is at least three
     filtered_pairs = grouped[grouped['cooperation_count'] >= 3]
     
     return filtered_pairs[['actor_id', 'director_id']]
@@ -66,6 +66,21 @@
     nth_highest = sorted_salaries.iloc[ N-1 ]
     return pd.DataFrame({f'getNthHighestSalary({N})': [nth_highest]})
 ```
+
+```diff
+178. Rank Scores
++ Refer to prathams29
+
+- 2023/09/12
+- Runtime 646ms (5.03%) / Memory 61.83MB(54.65%)
+
+  def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
+    df = scores.sort_values(by = 'score', ascending=False)
+    # rank(method='dense',ascending=False) = mysql-method => DENSE_RANK() OVER (PARTITION BY column1, column2, ... ORDER BY column3 [ASC|DESC])
+    df['rank'] = df['score'].rank(method='dense',ascending=False)
+    return df[['score','rank']]
+```
+
 
 
 

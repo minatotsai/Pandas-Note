@@ -81,6 +81,20 @@
     return df[['score','rank']]
 ```
 
+```diff
+586. Customer Placing the Largest Number of Orders
++ Refer to prathams29
+
+- 2023/09/13
+- Runtime 439ms (43.5%) / Memory 60.6MB(69.94%)
+
+  def largest_orders(orders: pd.DataFrame) -> pd.DataFrame:
+    return orders['customer_number'].mode().to_frame()
+
+  # .mode => the value that appears most frequently.
+  # .to_frame() => transform it into a new DataFrame.
+```
+
 
 
 

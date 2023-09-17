@@ -94,7 +94,15 @@
   # .mode => the value that appears most frequently.
   # .to_frame() => transform it into a new DataFrame.
 ```
-
+```diff
+596. Classes More Than 5 Students
++ Refer to sriganesh777
+- 2023/09/17
+- Runtime 377ms (48.64%)/ Memory 62.13MB(13.18%)
+  def find_classes(courses: pd.DataFrame) -> pd.DataFrame:
+    df = courses.groupby('class')['student'].count().reset_index()
+    return df[df['student'] >=5][['class']]
+```
 
 
 

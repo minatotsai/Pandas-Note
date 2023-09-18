@@ -94,6 +94,7 @@
   # .mode => the value that appears most frequently.
   # .to_frame() => transform it into a new DataFrame.
 ```
+
 ```diff
 596. Classes More Than 5 Students
 + Refer to sriganesh777
@@ -104,7 +105,14 @@
     return df[df['student'] >=5][['class']]
 ```
 
-
+```diff
+1484. Group Sold Products By The Date
++ Refer to DonBosco256
+- 2023/09/18
+- Runtime 656ms (11.00%)/ Memory 62.80MB(12.20%)
+  def categorize_products(activities: pd.DataFrame) -> pd.DataFrame:
+    return activities.groupby('sell_date')['product'].agg([('num_sold','nunique'),('products',lambda x: ',' .join(sorted(x.unique())))]).reset_index()
+```
 
 
 

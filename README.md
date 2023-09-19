@@ -114,5 +114,20 @@
     return activities.groupby('sell_date')['product'].agg([('num_sold','nunique'),('products',lambda x: ',' .join(sorted(x.unique())))]).reset_index()
 ```
 
-
+```diff
+1407. Top Travellers
++ Refer to sheharyarone
+- 2023/09/19
+- Runtime 520ms (30.77%)/ Memory 62.34MB(38.46%)
+   def top_travellers(users: pd.DataFrame, rides: pd.DataFrame) -> pd.DataFrame:
+      df = rides.groupby( ['user_id'])['distance'].sum().reset_index(name='travelled_distance' )
+  
+      df = pd.merge( users, df, how='left', left_on='id', right_on='user_id')
+  
+      df['travelled_distance'] = df['travelled_distance'].fillna(0)
+  
+      df.sort_values( by=['travelled_distance','name'], ascending=[False,True], inplace=True )
+  
+      return df[['name','travelled_distance']]
+```
 

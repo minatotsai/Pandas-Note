@@ -131,3 +131,11 @@
       return df[['name','travelled_distance']]
 ```
 
+```diff
+1378. Replace Employee ID With The Unique Identifier
++ Refer to user2612h
+- 2023/09/21
+- Runtime 516ms (43.90%)/ Memory 61.53MB(64.51%)
+   def top_travellers(users: pd.DataFrame, rides: pd.DataFrame) -> pd.DataFrame:
+      return employees.merge( employee_uni, how='left', left_on='id', right_on='id')[['unique_id','name']]
+```

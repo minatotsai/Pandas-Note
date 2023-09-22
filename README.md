@@ -139,3 +139,15 @@
    def top_travellers(users: pd.DataFrame, rides: pd.DataFrame) -> pd.DataFrame:
       return employees.merge( employee_uni, how='left', left_on='id', right_on='id')[['unique_id','name']]
 ```
+
+```diff
+1084. Sales Analysis III
++ Refer to grzegorzgatkowski
+- 2023/09/22
+- Runtime 581ms (75.70%)/ Memory 64.60MB(16.60%)
+   def sales_analysis(product: pd.DataFrame, sales: pd.DataFrame) -> pd.DataFrame:
+    sales = sales.groupby('product_id')['sale_date'].agg(['min', 'max']).reset_index()
+    sales = sales[(sales['min'] >= '2019-01-01') & (sales['max'] <= '2019-03-31')]
+    return sales.merge(product,how='inner')[['product_id','product_name']]
+
+```
